@@ -8,6 +8,8 @@ import hello.springpart2.order.Order;
 import hello.springpart2.order.OrderService;
 import hello.springpart2.order.OrderServiceImpl;
 
+
+//Junit없이 일반 java코드로 order테스트
 public class OrderApp {
 
     public static void main(String[] args) {

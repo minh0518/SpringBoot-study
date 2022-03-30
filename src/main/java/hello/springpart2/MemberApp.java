@@ -2,6 +2,7 @@ package hello.springpart2;
 
 import hello.springpart2.member.*;
 
+//Junit없이 일반 java코드로 member테스트
 public class MemberApp {
 
     public static void main(String[] args) {
