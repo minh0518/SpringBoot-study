@@ -2,6 +2,7 @@ package hello.springpart2.order;
 
 import hello.springpart2.discount.DiscountPolicy;
 import hello.springpart2.discount.FixDiscountPolicy;
+import hello.springpart2.discount.RateDiscountPolicy;
 import hello.springpart2.member.Member;
 import hello.springpart2.member.MemberRepository;
 import hello.springpart2.member.MemoryMemberRepository;
@@ -9,9 +10,14 @@ import hello.springpart2.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService{
 
     //2개가 필요함 MemberRepository에서 회원을 찾아야 하고
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
-    private final MemberRepository memberRepository=new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy=new FixDiscountPolicy();
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+    
 
 
     @Override

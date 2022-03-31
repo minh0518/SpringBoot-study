@@ -1,15 +1,25 @@
 package hello.springpart2.member;
 
+import hello.springpart2.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
 public class MemberServiceTest {
 
-    MemberService memberService=new MemberServiceImpl();
+    MemberService memberService;
 
-    @Test  //이걸 작성해야 junit에서 import가 됨
+    @BeforeEach
+    public void beforEach(){
+        AppConfig appConfig=new AppConfig();
+        memberService = appConfig.memberService();
+    }
+
+
+
+    @Test
     void join(){
         //given  이게 주어졌고
         Member member=new Member(1L,"memberA",Grade.VIP);
