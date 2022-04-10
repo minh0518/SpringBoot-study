@@ -5,6 +5,8 @@ import hello.springpart2.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SingletonTest {
 
@@ -40,6 +42,34 @@ public class SingletonTest {
 
         System.out.println("singletonService1 = " + singletonService1);
         System.out.println("singletonService2 = " + singletonService2);
+    }
+
+
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    public void springContainer(){
+
+        //AppConfig appConfig=new AppConfig();
+        // 순수 java로 사용안하고 스프링컨테이너를 사용할 것이므로 주석처리
+
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+
+
+        MemberService memberService1 =  ac.getBean("memberService",MemberService.class);
+
+
+        MemberService memberService2 = ac.getBean("memberService",MemberService.class);
+
+
+        //참조 값이 다른 것을 확인
+        System.out.println("memberService1 = " + memberService1);
+        System.out.println("memberService1 = " + memberService2);
+
+
+        //Assertions.assertThat(memberService1).isEqualTo(memberService2);
+        Assertions.assertThat(memberService1).isSameAs(memberService2);
+
     }
 
 }
