@@ -19,4 +19,11 @@ public class MemberServiceImpl implements MemberService{
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
     }
+
+
+    //AppConfig에서 싱글톤이 깨지는지 아닌지 확인하기 위한 테스트용도
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
+    }
+
 }

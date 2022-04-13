@@ -18,8 +18,6 @@ public class OrderServiceImpl implements OrderService{
         this.discountPolicy = discountPolicy;
     }
 
-
-
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId); // 회원을 찾고
@@ -29,6 +27,12 @@ public class OrderServiceImpl implements OrderService{
                 //Order객체엔 id,상품이름,가격,할인금액 이렇게 넣어줘야 했었습니다
     }
     //OrderServiceImpl는 주문을 넣으면 최종적으로 주문결과를 반환합니다
+
+
+    //AppConfig에서 싱글톤이 깨지는지 아닌지 확인하기 위한 테스트용도
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
+    }
 
 
 }
