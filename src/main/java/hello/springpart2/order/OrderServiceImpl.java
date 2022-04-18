@@ -6,13 +6,18 @@ import hello.springpart2.discount.RateDiscountPolicy;
 import hello.springpart2.member.Member;
 import hello.springpart2.member.MemberRepository;
 import hello.springpart2.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class OrderServiceImpl implements OrderService{
 
     //2개가 필요함 MemberRepository에서 회원을 찾아야 하고
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
