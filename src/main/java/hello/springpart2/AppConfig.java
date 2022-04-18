@@ -9,12 +9,15 @@ import hello.springpart2.member.MemberServiceImpl;
 import hello.springpart2.member.MemoryMemberRepository;
 import hello.springpart2.order.OrderService;
 import hello.springpart2.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
 public class AppConfig {
+
+
 
     @Bean
     public MemberService memberService(){
