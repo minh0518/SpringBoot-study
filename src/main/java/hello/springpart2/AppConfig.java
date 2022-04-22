@@ -17,8 +17,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-
-
     @Bean
     public MemberService memberService(){
         System.out.println("call AppConfig.memberService");
@@ -35,6 +33,7 @@ public class AppConfig {
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memoryRepository(), discountPolicy());
+
     }
 
     @Bean
