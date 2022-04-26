@@ -1,5 +1,6 @@
 package hello.springpart2.discount;
 
+import hello.springpart2.annotation.MainDiscountPolicy;
 import hello.springpart2.member.Grade;
 import hello.springpart2.member.Member;
 import org.springframework.beans.factory.annotation.Qualifier;
