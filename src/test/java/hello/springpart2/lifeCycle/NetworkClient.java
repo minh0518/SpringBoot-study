@@ -31,13 +31,13 @@ public class NetworkClient {
     }
 
     public void init(){
-        System.out.println("NetworkClient.afterPropertiesSet");
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메세지");
     }
 
     public void close(){
-        System.out.println("NetworkClient.destroy");
+        System.out.println("NetworkClient.close");
         disconnect();
     }
 
