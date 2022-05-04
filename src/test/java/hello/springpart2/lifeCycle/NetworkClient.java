@@ -1,5 +1,7 @@
 package hello.springpart2.lifeCycle;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class NetworkClient {
 
@@ -30,14 +32,18 @@ public class NetworkClient {
         System.out.println("close : "+url);
     }
 
+    //초기화 로직
+    @PostConstruct
     public void init(){
         System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메세지");
     }
 
+    //종료 로직
+    @PreDestroy
     public void close(){
-        System.out.println("NetworkClient.close");
+        System.out.println("NetworkClient.destroy");
         disconnect();
     }
 
